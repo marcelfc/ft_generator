@@ -1,0 +1,11 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form">
+
+    <div *ngFor="let question of questions" class="form-group">
+      <app-form-generator-dynamic-question [question]="question" [form]="form"></app-form-generator-dynamic-question>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="!form.valid" class="btn btn-success">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,24 @@
+<div [formGroup]="form">
+  <label [attr.for]="question.key"><b>{{question.label}}</b></label>
+
+  <div [ngSwitch]="question.controlType">
+
+    <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
+            [id]="question.key" [type]="question.type" [class]="question.class">
+
+    <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key" [class]="question.class">
+      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+
+    <div *ngSwitchCase="'checkbox'" class="checkbox">
+      <label *ngFor="let opt of question.options">
+        <input type="checkbox" [value]="opt.key" [formControlName]="question.key"> {{opt.value}}
+      </label>
+    </div>
+
+    <app-ngx-editor *ngSwitchCase="'editor'" [placeholder]="'Text Editor'" [spellcheck]="true" [minHeight]="300" [formControlName]="question.key"></app-ngx-editor>
+
+  </div>
+
+  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+</div>
