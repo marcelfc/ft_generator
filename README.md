@@ -116,4 +116,4 @@ columns = [
 ```
 
 - As actions são geradas automaticamente, sem a necessidade de declara uma coluna para elas.
-- Você precisa acoplar ao seu projeto o Bootstrap.
+- Você precisa acoplar ao seu projeto o Bootstrap!.
